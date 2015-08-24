@@ -2,7 +2,7 @@
     include 'includes/head.php';
 
     //Webpage Title
-    $Title = "Hello World";
+    $Title = "Team 4: Hello World";
 
     displayHead($Title);
 ?>
