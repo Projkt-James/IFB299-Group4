@@ -1,0 +1,63 @@
+/***************************
+CUSTOM CLASSES
+***************************/
+
+.clear{
+clear: both;
+}
+
+.circle {
+   border-radius: 50%;
+   behavior: url(PIE.htc); /* IE8 SUPPORT */
+}
+
+/* ELEMENT CENTERING */
+.center-vert {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.center-hoz {
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;   
+}
+.absolute {
+    position: absolute !important;
+}
+
+/* Removes hyperlink underline */
+a{  
+    text-decoration: none !important;
+}
+
+/***************************
+CUSTOM MIXINS
+***************************/
+@mixin translate-y($yval){
+    transform: translateY($yval) !important;
+}
+
+@mixin translate-x-0($xval){
+    transform: translateX($xval) !important;
+}
+
+
+@mixin transition-ease($duration){
+    -webkit-transition: all $duration ease !important;
+    -moz-transition: all $duration ease !important;
+    -o-transition: all $duration ease !important;
+    -ms-transition: all $duration ease !important;
+    transition: all $duration ease !important;   
+}
+
+
+

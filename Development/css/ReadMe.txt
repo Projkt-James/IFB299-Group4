@@ -1,0 +1,1 @@
+A local installation of Ruby and the Sass Gem required for the Scss compiler bat to work. 
