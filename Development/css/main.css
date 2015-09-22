@@ -1,56 +1,66 @@
 /*
 *
-*   NAME: Hello World Sass Styling
+*   NAME: Media Vault Sass Styling
 *   AUTHOR: James Hanford
 *   CREATED: 20/08/2015
 *   VERSION: 1.0.0
 *
 */
+/***************************
+TYPOGRAPHY
+***************************/
+@import url(http://fonts.googleapis.com/css?family=Hind:400,300,500);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,700,800,400,600);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display);
 /***************************
 CUSTOM CLASSES
 ***************************/
-/* line 5, C:/Users/James/Desktop/IFB299/Project1/Development/css/_custom.scss */
 .clear {
   clear: both; }
 
-/* line 9, C:/Users/James/Desktop/IFB299/Project1/Development/css/_custom.scss */
 .circle {
   border-radius: 50%;
   behavior: url(PIE.htc);
   /* IE8 SUPPORT */ }
 
 /* ELEMENT CENTERING */
-/* line 15, C:/Users/James/Desktop/IFB299/Project1/Development/css/_custom.scss */
-.center-vert, .bg .title {
+.center-vert {
   position: relative;
   top: 50%;
   transform: translateY(-50%); }
 
-/* line 20, C:/Users/James/Desktop/IFB299/Project1/Development/css/_custom.scss */
 .center-hoz {
   margin: 0 auto; }
 
-/* line 24, C:/Users/James/Desktop/IFB299/Project1/Development/css/_custom.scss */
 .hidden {
   display: none; }
 
-/* line 27, C:/Users/James/Desktop/IFB299/Project1/Development/css/_custom.scss */
 .left {
   float: left; }
 
-/* line 30, C:/Users/James/Desktop/IFB299/Project1/Development/css/_custom.scss */
 .right {
   float: right; }
 
-/* line 33, C:/Users/James/Desktop/IFB299/Project1/Development/css/_custom.scss */
 .absolute {
   position: absolute !important; }
 
 /* Removes hyperlink underline */
-/* line 38, C:/Users/James/Desktop/IFB299/Project1/Development/css/_custom.scss */
 a {
   text-decoration: none !important; }
+
+input {
+  text-transform: capitalize;
+  outline: none;
+  outline-color: transparent; }
+
+*:focus {
+  outline: none;
+  outline-color: transparent; }
 
 /***************************
 CUSTOM MIXINS
@@ -59,41 +69,358 @@ CUSTOM MIXINS
 VARIABLES
 ***************************/
 /***************************
-HELLO WORLD CLASSES
+PAGE STYLING
 ***************************/
-/* line 21, C:/Users/James/Desktop/IFB299/Project1/Development/css/main.scss */
-.bg {
-  background-image: url(../images/spacex-dragon.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  overflow: hidden;
-  width: 100%;
-  height: 100vh;
-  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
-  /* Firefox 3.5+ */
-  -webkit-filter: grayscale(80%) !important;
-  filter: grayscale(80%) !important; }
-  /* line 35, C:/Users/James/Desktop/IFB299/Project1/Development/css/main.scss */
-  .bg .bg-overlay {
+/***************************
+LOGIN CLASSES
+***************************/
+.Login-Container {
+  display: block;
+  width: 330px;
+  overflow-y: hidden; }
+  .Login-Container ul {
+    margin: 0;
+    padding: 0; }
+  .Login-Container li {
+    list-style-type: none; }
+  .Login-Container ul li .Input_Icon {
+    position: absolute;
+    height: 38px;
+    width: 38px;
+    margin-top: 9px;
+    background-color: #4c5666;
+    text-align: center;
+    line-height: 38px; }
+  .Login-Container ul li .Input_Icon:before {
+    font-size: 130%;
+    color: #6b788c; }
+  .Login-Container ul li .Input_Hide {
+    position: absolute;
+    background-color: #414A58;
+    margin-top: 9px;
+    height: 38px;
+    margin-left: 310px;
+    width: 20px; }
+  .Login-Container ul li .InputError {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 90%;
+    color: #dc5041;
+    margin: 0;
+    margin-bottom: 5px;
+    padding-right: 5px;
     width: 100%;
-    height: 101%;
-    background-color: rgba(0, 0, 0, 0.8); }
-  /* line 41, C:/Users/James/Desktop/IFB299/Project1/Development/css/main.scss */
-  .bg .title {
-    font-family: 'Playfair Display', serif;
-    font-size: 120px;
+    text-align: right; }
+  .Login-Container input[type=text], .Login-Container input[type=password], .Login-Container input[type=number] {
+    width: 100%;
+    height: 38px;
+    background-color: #414a58;
+    border: none;
+    color: #9ca9be;
+    padding: 10px 0;
+    padding-left: 55px;
+    padding-right: 5px;
+    margin: 9px auto;
+    margin-bottom: 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 105%;
+    line-height: 20px; }
+  .Login-Container input[type=text]:focus, .Login-Container input[type=password]:focus, .Login-Container input[type=number]:focus {
+    color: #31c0be; }
+  .Login-Container ::-webkit-input-placeholder {
+    color: #6b788c; }
+  .Login-Container :-moz-placeholder {
+    /* Firefox 18- */
+    color: #6b788c; }
+  .Login-Container ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #6b788c; }
+  .Login-Container :-ms-input-placeholder {
+    color: #6b788c; }
+  .Login-Container input[type=submit] {
+    width: 100%;
+    background: #31c0be;
+    height: 40px;
     color: white;
-    margin: 0 auto;
+    border-radius: 2px;
+    margin: 45px 0;
+    font-family: 'Open Sans', sans-serif; }
+  .Login-Container input[type=submit]:focus {
+    outline: none; }
+  .Login-Container input[type=button] {
+    width: 100%;
+    background: #31c0be;
+    height: 40px;
+    color: white;
+    border-radius: 2px;
+    margin: 45px 0;
+    font-family: 'Open Sans', sans-serif; }
+  .Login-Container input[type=button]:focus {
+    outline: none; }
+  .Login-Container ul li:nth-child(1) {
+    height: 90px;
+    z-index: 999;
+    width: 100%;
+    font-size: 240%;
+    color: #414a58;
+    text-align: center;
+    font-family: 'Roboto Slab', sans-serif; }
+  .Login-Container li:last-child a {
+    display: block;
+    text-align: center;
+    font-family: 'Hind';
+    color: #414A58; }
+  .Login-Container ul li a {
+    color: #8F9CA5; }
+  .Login-Container select {
+    width: 100%;
+    height: 38px;
+    background-color: #414a58;
+    border: none;
+    color: #6b788c;
+    margin: 9px auto;
+    padding-left: 55px;
+    padding-right: 5px;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; }
+  .Login-Container select option {
+    color: #555;
+    background-color: #FFF;
+    padding-left: 55px;
+    padding-top: 10px;
+    padding-bottom: 10px; }
+
+/***************************
+SIGN UP CLASSES
+***************************/
+/***************************
+LIBRARY CLASSES
+***************************/
+.Libhead-Container {
+  background-color: #CFD6DA;
+  z-index: -1;
+  display: table;
+  width: 100%; }
+  .Libhead-Container .Library-Upload {
     display: table;
-    -webkit-animation-duration: 4s;
-    animation-duration: 4s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-transition: all 1.5s ease !important;
-    -moz-transition: all 1.5s ease !important;
-    -o-transition: all 1.5s ease !important;
-    -ms-transition: all 1.5s ease !important;
-    transition: all 1.5s ease !important; }
+    background-color: #2b2f3e;
+    color: white;
+    font-family: 'Hind';
+    margin: 2rem auto;
+    padding: 0;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px; }
+    .Libhead-Container .Library-Upload span {
+      display: inline-block;
+      vertical-align: middle;
+      padding: 10px 25px; }
+  .Libhead-Container .upload-input-hidden {
+    height: 0px !important;
+    padding: 0 !important;
+    -webkit-transition: all 1s ease !important;
+    -moz-transition: all 1s ease !important;
+    -o-transition: all 1s ease !important;
+    -ms-transition: all 1s ease !important;
+    transition: all 1s ease !important; }
+  .Libhead-Container .upload-input {
+    margin: 2rem auto;
+    padding-top: 1rem;
+    height: 50px;
+    -webkit-transition: all 1s ease !important;
+    -moz-transition: all 1s ease !important;
+    -o-transition: all 1s ease !important;
+    -ms-transition: all 1s ease !important;
+    transition: all 1s ease !important; }
+    .Libhead-Container .upload-input input[type="file"] {
+      display: none;
+      color: #2B2F3E;
+      font-size: 130%;
+      font-family: 'Hind';
+      margin: 0 auto;
+      padding-left: 90px;
+      outline: none; }
+    .Libhead-Container .upload-input input[type="file"]::-webkit-file-upload-button, .Libhead-Container .upload-input button {
+      font-size: 75%;
+      background-color: #31c0be;
+      color: #276D6D;
+      font-family: 'Hind';
+      border: none;
+      padding: 10px;
+      outline: none; }
+
+.Library-Container {
+  width: 100%;
+  padding-top: 1rem; }
+  .Library-Container .Library-Item {
+    padding: 1rem; }
+    .Library-Container .Library-Item .Item-Preview {
+      width: 15rem;
+      height: 15rem;
+      margin: 0 auto;
+      background-color: #FBFBFB;
+      border-bottom: 2px solid #EAEAEA;
+      line-height: 15rem;
+      text-align: center;
+      font-family: 'Roboto Slab';
+      color: #2B2F3E;
+      font-size: 500%; }
+    .Library-Container .Library-Item .Item-Title {
+      margin-top: 10px;
+      font-family: 'Hind';
+      font-size: 110%;
+      text-align: center; }
+
+/***************************
+GLOBAL CLASSES
+***************************/
+nav {
+  display: block;
+  width: 18rem;
+  position: fixed;
+  transform: translateX(-100%);
+  height: 100vh;
+  background: #2b2f3e;
+  z-index: 999;
+  -webkit-transition: transform 1s ease !important;
+  -moz-transition: transform 1s ease !important;
+  -o-transition: transform 1s ease !important;
+  -ms-transition: transform 1s ease !important;
+  transition: transform 1s ease !important; }
+  nav .Logo {
+    width: 100%;
+    height: 4.9rem;
+    color: white;
+    text-align: center; }
+  nav ul {
+    display: inline-block;
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%; }
+    nav ul li {
+      color: white;
+      font-family: 'Hind';
+      padding: 10px; }
+    nav ul .active {
+      background-color: #242836;
+      border-top: 1px solid #323748;
+      border-bottom: 1px solid #323748; }
+
+nav.active {
+  transform: translateX(0%); }
+
+.Page-Container {
+  min-height: 120vh;
+  padding-top: 4.9rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  -webkit-transition: all 1s ease !important;
+  -moz-transition: all 1s ease !important;
+  -o-transition: all 1s ease !important;
+  -ms-transition: all 1s ease !important;
+  transition: all 1s ease !important; }
+
+.Page-Container.resize {
+  left: 18rem; }
+
+.TopBar {
+  height: 4.9rem;
+  background-color: #f9f9f9;
+  box-shadow: inset 0 0 0.1rem #ddd;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  -webkit-transition: width 1s ease !important;
+  -moz-transition: width 1s ease !important;
+  -o-transition: width 1s ease !important;
+  -ms-transition: width 1s ease !important;
+  transition: width 1s ease !important; }
+  .TopBar .Nav-Toggle {
+    height: 4.9rem;
+    width: 4.9rem;
+    background-color: #31c0be;
+    float: left;
+    z-index: 10;
+    border: none;
+    border-radius: 0; }
+    .TopBar .Nav-Toggle .Nav-Icon {
+      display: block;
+      margin: 0 auto; }
+      .TopBar .Nav-Toggle .Nav-Icon i {
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        text-align: center;
+        color: #276D6D;
+        font-size: 140%; }
+  .TopBar .TopBar-Right {
+    position: absolute;
+    right: 0;
+    -webkit-transition: height 1s ease !important;
+    -moz-transition: height 1s ease !important;
+    -o-transition: height 1s ease !important;
+    -ms-transition: height 1s ease !important;
+    transition: height 1s ease !important; }
+    .TopBar .TopBar-Right .TopBar-Profile {
+      color: inherit;
+      font-weight: inherit;
+      height: 4.9rem;
+      padding: 0 25px;
+      font-family: 'Hind'; }
+      .TopBar .TopBar-Right .TopBar-Profile .TopBar-ProfilePic {
+        float: left;
+        width: 40px;
+        height: 40px;
+        background-image: url(../images/default.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; }
+      .TopBar .TopBar-Right .TopBar-Profile span {
+        margin-left: 10px;
+        line-height: 4.9rem;
+        text-align: center; }
+    .TopBar .TopBar-Right ul {
+      height: 0;
+      display: inline-block;
+      text-decoration: none;
+      list-style: none;
+      overflow: hidden;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      background-color: #F9F9F9;
+      padding-right: 20px;
+      box-shadow: inset 0 0 0.1rem #ddd;
+      -webkit-transition: all 1s ease !important;
+      -moz-transition: all 1s ease !important;
+      -o-transition: all 1s ease !important;
+      -ms-transition: all 1s ease !important;
+      transition: all 1s ease !important; }
+      .TopBar .TopBar-Right ul li {
+        height: 0;
+        text-align: right;
+        color: #242836;
+        font-family: 'Hind';
+        font-weight: 300;
+        font-size: 90%;
+        padding: 10px; }
+  .TopBar .TopBar-Right:hover .TopBar-Profile {
+    background-color: #2B2F3E;
+    color: white;
+    font-weight: 300; }
+  .TopBar .TopBar-Right:hover ul {
+    height: initial;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+    .TopBar .TopBar-Right:hover ul li {
+      height: initial; }
 
 /*# sourceMappingURL=main.css.map */
