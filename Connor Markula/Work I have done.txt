@@ -1,4 +1,6 @@
-Screenshots of my work with user storys a lot of the user storys were made by me.
+The first is an sql file this is the database I designed in SQL and MySQL. This database is used in the website we are building, this is counts for another large amount of work.
+
+Next are screenshots of my work with user storys a lot of the user storys were made by me.
 
 The next is another Large amount of work I have done lots of work on Jira work includes : updating User storys, changing story IDs, organising\starting spirits etc. etc,,
 
