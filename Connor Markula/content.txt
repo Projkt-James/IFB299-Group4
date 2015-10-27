@@ -1,6 +1,15 @@
-Work I have done this reles 
+Work I have done this releses include:
 
-the organisiantion of JIRA, During the weeks I Have Update Jira on a daily baseist
+The organisation of JIRA, During the weeks I Have update Jira on a daily basis, this can be a lot of work on its own as many 
+of the userstorys need to be updated on a daily and weekly basis.
 
 
-I have Developed the spirit 3 Burn down chart , this shows the data that 
+The user storys have been updated to meet standards.
+
+
+I have Developed the spirit 3 Burn down chart, This can be a challaging process as everything in jira needs to be 
+fully orgainze to have the burn down chart to record accurately. 
+
+I have also developed the spirit 4 burn down chart.
+
+
