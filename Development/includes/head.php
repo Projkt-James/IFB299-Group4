@@ -3,13 +3,14 @@
 *
 *   AUTHOR: James Hanford
 *   CREATED: 05/09/2015
-*   VERSION: 1.0.0
+*   VERSION: 1.2.0
 *
 */
 
 include "functions.php";
 
 session_start();
+//include "../pages/debug.php";
 
 function displayHead($pageTitle){
     $head_HTML = '  <html>
@@ -20,7 +21,7 @@ function displayHead($pageTitle){
                             <!-- JQuery/Javascript -->
                             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
                             <script type="text/javascript" src="../js/animate.js"></script>
-                            <script type="text/javascript" src="../js/transformicons.js"></script>
+                            <script type="text/javascript" src="../plugins/jquery.getUrlParam.js"></script>
 
                             <!--<script type="text/javascript" src="../plugins/jquery.autosize.js"></script>-->
 
@@ -71,8 +72,8 @@ function displayTopBar(){
                                 </div>
                                 
                                 <ul>
-                                    <li>Settings</li>
-                                    <li><a href="logout.php">Logout</href></li></a>
+                                    <a href="settings.php"><li>Settings</li></a>
+                                    <a href="logout.php"><li>Logout</li></a>
                                 </ul>
                                 
                             </div>
@@ -83,16 +84,32 @@ function displayTopBar(){
     echo $topbar_HTML;
 }
 
-function displayNav(){
+function displayNav($navTab = false){
+    
+    $navLength = 4; //Max Nav Length
+    $navArray = array();
+    
+    //For loop used to set the class active for the current page
+    for($i=1; $i<=$navLength; $i++){   
+
+        //Set Default
+        $nav[$i] ="";
+
+        //Tab Selector
+        if($navTab){
+            if($navTab == $i)$nav[$i] = "active";
+        }
+    }
+    
     $nav_HTML = '   <nav>
                         <div class="Logo">
                             
                         </div>
                         <ul>
-                            <li class="active">All Media</li>
-                            <li>Images</li>
-                            <li>Videos</li>
-                            <li>Audio</li>
+                            <a href="index.php"><li class="'.$nav[1].'">All Media</li></a>
+                            <a href="images.php"><li class="'.$nav[2].'">Images</li></a>
+                            <a href="videos.php"><li class="'.$nav[3].'">Videos</li></a>
+                            <a href="audio.php"><li>Audio</li></a>
                         </ul>
                     </nav>';
     

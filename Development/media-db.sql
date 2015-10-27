@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2015 at 03:36 PM
+-- Generation Time: Oct 27, 2015 at 04:24 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -56,25 +56,24 @@ CREATE TABLE IF NOT EXISTS `media` (
   `mediaTitle` varchar(100) NOT NULL,
   `memberID` int(10) NOT NULL,
   `mediaFileName` varchar(100) DEFAULT NULL,
+  `mediaFileType` varchar(100) DEFAULT NULL,
+  `mediaDimensions` varchar(100) DEFAULT NULL,
+  `mediaSize` varchar(100) DEFAULT NULL,
+  `mediaAddDate` datetime NOT NULL,
   `mediaTypeID` tinyint(2) DEFAULT NULL,
   PRIMARY KEY (`mediaID`),
   KEY `memberID` (`memberID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `media`
 --
 
-INSERT INTO `media` (`mediaID`, `mediaTitle`, `memberID`, `mediaFileName`, `mediaTypeID`) VALUES
-(2, 'cab201.png', 27, '1442769320_cab201.png', 1),
-(4, 'albert.jpg', 27, '1442846161_albert.jpg', 1),
-(6, 'plant.jpg', 27, '1442846186_plant.jpg', 1),
-(7, 'kanyevideo.mp4', 27, '1442846628_kanyevideo.mp4', 2),
-(8, 'plant.jpg', 28, '1442859971_plant.jpg', 1),
-(9, 'zombie.jpg', 28, '1442859971_zombie.jpg', 1),
-(10, 'albert.jpg', 28, '1442859989_albert.jpg', 1),
-(11, 'cab201.png', 28, '1442859989_cab201.png', 1),
-(12, 'Shark Ops.png', 28, '1442899554_shark ops.png', 1);
+INSERT INTO `media` (`mediaID`, `mediaTitle`, `memberID`, `mediaFileName`, `mediaFileType`, `mediaDimensions`, `mediaSize`, `mediaAddDate`, `mediaTypeID`) VALUES
+(19, 'teki-latex-zodiac-motez-edit.mp3', 28, '1445887120_teki-latex-zodiac-motez-edit.mp3', 'mp3', NULL, '13.13 MB', '2015-10-27 05:18:40', 3),
+(21, 'Snapchat-20140515025630.mp4', 28, '1445909004_snapchat-20140515025630.mp4', 'mp4', NULL, '872.03 KB', '2015-10-27 11:23:24', 2),
+(22, '16479242186_62fe44411f_b.jpg', 28, '1445925438_16479242186_62fe44411f_b.jpg', 'jpg', '1024 x 682', '289.1 KB', '2015-10-27 15:57:18', 1),
+(23, 'Nosaj Thing - Coat of Arms (Boreta Remix).mp3', 28, '1445925494_nosaj thing - coat of arms (boreta remix).mp3', 'mp3', NULL, '10.26 MB', '2015-10-27 15:58:14', 3);
 
 -- --------------------------------------------------------
 
@@ -86,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `mediatype` (
   `mediaTypeID` tinyint(2) NOT NULL AUTO_INCREMENT,
   `mediatype` varchar(20) NOT NULL,
   PRIMARY KEY (`mediaTypeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
 --
 -- Dumping data for table `mediatype`
@@ -139,7 +138,7 @@ INSERT INTO `member` (`memberID`, `memberUsername`, `memberPassword`, `memberSal
 (20, 'Kanye', '335106dd1b001c3658076445307a29c693afb2c05d81e6f2e85397ff3afafb35', '17d573090ea992b8601c19510d82822d', 'Kanye', 'Pest', NULL, NULL, NULL, '1337', 5, NULL, NULL, 'Kanye@pest.com', 'M', '2014-10-13 11:27:39', '20/1326_kanye-west.jpeg', 1),
 (25, 'Emma', 'd78d4d07b1ea3fe1d11d7e7a5dcd7e124f11e1a16151699fe5f2835daef3ba12', '0bd22f845caab32135df5eb1c64d17bc', 'Emma', 'Stone', NULL, NULL, NULL, '4111', 5, NULL, NULL, 'Emma@Stone.com', 'F', '2014-10-13 14:12:29', '25/7856_emma.jpeg', 1),
 (24, 'Drake', 'ff32b5419a862aed18fb281c81aea618d8597c1ad4c6906fb565c18cb77424df', '175256aa645027616af611e434407785', 'Drake', 'Graham', NULL, NULL, NULL, '4001', 5, NULL, NULL, 'drake@drake', 'M', '2014-10-13 14:02:11', '24/5892_drake.jpg', 1),
-(28, 'Demo', 'f8c88c459603979f78fdafb03f97251b9a678759a02e817e7b097a919d238402', '10758c9d2204f521c86bb14ec994c1e4', 'James', 'Test', NULL, NULL, NULL, '4012', 1, NULL, NULL, 'james.rabbit96@gmail.com', 'M', '2015-09-22 04:20:15', NULL, 1);
+(28, 'Demo', 'f8c88c459603979f78fdafb03f97251b9a678759a02e817e7b097a919d238402', '10758c9d2204f521c86bb14ec994c1e4', 'Demo', 'Account', NULL, NULL, NULL, '4000', 1, NULL, NULL, 'demo@projkt.io', 'M', '2015-09-22 04:20:15', '8064_apollo4.jpg', 1);
 
 -- --------------------------------------------------------
 

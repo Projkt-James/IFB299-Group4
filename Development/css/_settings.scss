@@ -1,0 +1,250 @@
+/***************************
+SETTINGS CLASSES
+***************************/
+.Settings-Container{
+    width: 100%;
+    margin: 0 auto;
+    display: table;
+    position: relative;
+    
+    h1{
+        font-family: 'Open Sans';
+        font-weight: 300;
+    }
+    .Settings-Head{
+        width: 100%;
+        height: 60px;
+        background-color: #FBFBFB;
+        display: table;
+        border-bottom: 1px solid #E6E6E6;
+        padding: 0 20px;
+        padding-top: 2rem;
+        margin-bottom: 2rem;
+        
+        h1{
+            font-size: 200%;
+            font-family: 'Roboto';
+            font-weight: 300;
+            text-transform: uppercase; 
+            float: left;
+            margin: 0;
+            height: 60px;
+            line-height: 60px;
+        }
+    }
+}
+
+/***************************
+Form & Input Styling
+***************************/
+.Update-Form ul{
+    margin: 0;
+    padding: 0;
+    
+    li{
+        list-style-type: none;    
+    }
+}
+
+.Update_Form li{
+    
+}
+
+.Update_Form ul li .Input_Icon{
+    position: absolute;
+    height: 38px;
+    width: 38px;
+    margin-top: 5px;
+    background-color: #414a58;
+    text-align: center;
+    line-height: 38px;
+}
+.Update_Form ul li .Input_Icon:before{
+    font-size: 130%;
+    color: #6b788c;
+}
+.Update_Form input[type=text], .Update_Form input[type=password]{
+    width: 100%;
+    min-width: 250px;
+    height: 38px;
+    background-color: #fcfcfc;
+    border: none;
+    color: #4C5564;
+    padding: 10px 0;    
+    padding-left: 55px;
+    padding-right: 5px;
+    margin: 5px auto;
+    margin-bottom: 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 105%;
+    line-height: 20px;
+}
+.Update_Form input[type=text]:focus, input[type=password]:focus{
+    color: $heroColor;
+}
+
+.Update_Form ::-webkit-input-placeholder {
+    color: #d0d0d0;
+    font-weight: 400;
+}
+.Update_Form :-moz-placeholder { /* Firefox 18- */
+   color: #e0e0e0;
+}
+.Update_Form ::-moz-placeholder {  /* Firefox 19+ */
+   color: #e0e0e0;
+}
+.Update_Form :-ms-input-placeholder {  
+   color: #e0e0e0;
+}
+
+.Update_Form input[type=submit]{
+    float: right;
+    background: $heroColor;
+    height: 40px;
+    color: white;
+    border-radius: 2px;
+    margin: 30px 0;
+    font-family: 'Open Sans', sans-serif;
+    padding: 7px 20px;
+}
+.Update_Form input[type=submit]:focus{
+    outline: none;
+}
+.Update_Form input[type=file]:focus{
+    outline: none;
+}
+
+/* ERROR TAG */
+.Update_Form .InputError{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 75%;
+    color: rgb(244, 88, 71);
+    margin: 0;
+    margin-bottom: 5px;
+    padding-right: 5px;
+    width: 100%;
+    text-align: right;
+}
+.Profile_Update_Picture .InputError{
+    text-align: left;
+    padding-top: 15px;
+}
+
+/* DROP DOWN */
+.Update_Form select{
+    width: 100%;
+    height: 38px;
+    background-color: #fcfcfc;
+    border: none;
+    color: #4C5564;
+    margin: 5px auto;
+    padding-left: 55px;
+    padding-right: 5px;   
+    
+    font-family: 'Open Sans', sans-serif;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.Update_Form select option{
+    color: #555;
+    background-color: #FFF;
+    padding-left: 55px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/***************************
+Account Settings
+***************************/
+.Settings-Account{
+    width: 50%;
+    float: left;
+    padding: 0 80px;
+    display: inline-block;
+}
+
+
+/***************************
+Profile Picture
+***************************/
+/* Update Profile Picture */
+.Profile_Update_Picture{
+    width: 50%;
+    float: left;
+    padding: 0 80px;
+}
+.Profile_Update_Picture_User_Picture {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 20px;
+    background-image: url(../images/default.jpg);
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: cover;  
+}
+.Profile_Update input[type=file] {
+    margin-left: 20px;
+}
+
+/* Update Password */
+.Profile_Update_Password{
+    width: 50%;
+    float: left;
+    padding: 0 80px;
+}
+
+/* Dectivate Account */
+.Profile_Update_Deactivate{
+    width: 50%;
+    float: left;
+    margin-bottom: 20px;
+    padding: 0 80px;
+}
+
+.Profile_Update_Deactivate span{
+    color: #5E6979;
+    font-family: 'Hind', sans-serif;   
+    font-weight: 300;
+    cursor: pointer;
+}
+.Profile_Update_Deactivate span:hover{
+    color: #fe785f;  
+}
+
+/***************************
+MEDIA QUERIES
+***************************/
+
+@media (max-width: 1000px) { 
+    .Settings-Account{
+        width: 100%;
+    }
+    .Profile_Update_Picture{
+        width: 100%;
+    }
+    .Profile_Update_Password{
+        width: 100%;
+    }
+    .Profile_Update_Deactivate{
+        width: 100%;
+    }
+}
+@media (max-width: 450px) {
+    .Profile_Update_Picture_User_Picture {
+        width: 200px;
+        height: 200px;   
+    }
+    .Settings-Account{
+        padding: 15px;
+    }
+    .Profile_Update_Picture{
+        padding: 15px;
+    }
+    .Profile_Update_Password{
+        padding: 15px;
+    }
+    .Profile_Update_Deactivate{
+        padding: 15px;
+    }
+}

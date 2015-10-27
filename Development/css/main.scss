@@ -28,6 +28,7 @@ TYPOGRAPHY
 VARIABLES
 ***************************/
 $title-Color: white;
+$heroColor: #31c0be; 
 
 $topbar-Primary: #31c0be;
 $login-Primary: #31c0be;
@@ -38,9 +39,24 @@ PAGE STYLING
 @import "login";
 @import "signup";
 @import "library";
+@import "settings";
 
 /***************************
 GLOBAL CLASSES
+***************************/
+
+.debug{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    background-color: red;
+    color: white;
+}
+
+
+/***************************
+NAVBAR
 ***************************/
 nav{
     display: block;
@@ -71,12 +87,21 @@ nav{
         li{
             color: white;
             font-family: 'Hind';  
-            padding: 10px;
+            padding: 15px;
+            text-transform: uppercase;
+            font-size: 80%;
+        }
+        li:hover{
+            color: #31c0be;   
         }
         .active{
+            color: #7A7A7B;  
             background-color: #242836;
             border-top: 1px solid #323748;
             border-bottom: 1px solid #323748;           
+        }
+        .active:hover{
+            color: #7A7A7B;  
         }
     }//end ul
     
@@ -85,6 +110,8 @@ nav{
 nav.active{
     transform: translateX(0%);
 }
+//END NAVBAR
+
 .Page-Container{
     min-height: 120vh;
     padding-top: 4.9rem;
@@ -145,10 +172,10 @@ nav.active{
     }
     
     .TopBar-Right{
-        position: absolute;
+        position: fixed;
         right: 0;
         
-        @include transition-ease(height,1s);
+        @include transition(height,1s);
         
         .TopBar-Profile{
             color: inherit;
@@ -188,7 +215,7 @@ nav.active{
             padding-right: 20px;
             box-shadow: inset 0 0 0.1rem #ddd;
             
-            @include transition-ease(all,1s);
+            @include transition(all,1s);
         
             li{
                 height: 0;

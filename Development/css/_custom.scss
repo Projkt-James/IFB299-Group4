@@ -61,6 +61,14 @@ CUSTOM MIXINS
     transform: translateX($xval) !important;
 }
 
+@mixin transition($element,$duration){
+    -webkit-transition: $element $duration !important;
+    -moz-transition: $element $duration !important;
+    -o-transition: $element $duration !important;
+    -ms-transition: $element $duration !important;
+    transition: $element $duration !important;   
+}
+
 @mixin transition-ease($element,$duration){
     -webkit-transition: $element $duration ease !important;
     -moz-transition: $element $duration ease !important;
@@ -76,5 +84,22 @@ CUSTOM MIXINS
     border-radius: $radius;
 }
 
+@mixin placeholder-color($color){
+    ::-webkit-input-placeholder {
+        color: $color;
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+       color: $color;  
+    }
+
+    ::-moz-placeholder {  /* Firefox 19+ */
+       color: $color;  
+    }
+
+    :-ms-input-placeholder {  
+       color: $color;  
+    }
+}
 
 

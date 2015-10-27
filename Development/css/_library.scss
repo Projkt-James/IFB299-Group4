@@ -17,7 +17,7 @@ LIBRARY CLASSES
         margin: 2rem auto;
         padding: 0;
         
-        @include border-radius(0px);
+        @include border-radius(2px);
         
         span{
             display: inline-block;
@@ -44,7 +44,7 @@ LIBRARY CLASSES
         input[type="file"]{
             display: none;
             color: #2B2F3E;
-            font-size: 130%;
+            font-size: 110%;
             font-family: 'Hind';
             
             margin: 0 auto;
@@ -60,6 +60,7 @@ LIBRARY CLASSES
             border: none;
             padding: 10px;
             outline: none;
+            @include border-radius(2px);
         }
     }
     
@@ -67,12 +68,89 @@ LIBRARY CLASSES
 
 .Library-Container{
     width: 100%;
-    padding-top: 1rem;
+    display: table;
+    position: relative;
+    
+    .Library-Head{
+        width: 100%;
+        height: 60px;
+        background-color: #FBFBFB;
+        display: table;
+        border-bottom: 1px solid #E6E6E6;
+        padding: 0 20px;
+        padding-top: 2rem;
+        
+        h1{
+            font-size: 200%;
+            font-family: 'Roboto';
+            font-weight: 300;
+            text-transform: uppercase; 
+            float: left;
+            margin: 0;
+            height: 60px;
+            line-height: 60px;
+        }
+        
+        .LH-Right{
+            height: 60px;
+            
+        }
+        .Search-Trigger{
+            height: 40px;
+            float: right;
+            
+            i{
+                display: inline-block;
+                vertical-align: middle;
+
+                width: 100%;
+                text-align: center;
+                color: #333;
+                font-size: 140%;  
+                height: 60px;
+                line-height: 60px;
+            }
+        }
+    }//end Library-Head
+    
+    .Library-Search{
+        width: 100%;
+        height: 0;//7rem
+        background-color: #FBFBFB;
+        color: #2B2F3E;
+        text-align: center;
+        line-height: 7rem;
+        font-family: 'Open Sans';
+        font-weight: 300;
+        font-size: 170%;
+        margin-bottom: 4rem;
+        overflow: hidden;
+        @include transition(height,1s);
+    }
+    .Library-Search.active{
+        height: 7rem;
+        
+        .Search-Bar input{
+            width: 100%;
+            text-align: center;
+            background: none;
+            border: none;
+            font-family: 'Roboto Slab';
+            font-weight: 500;
+            font-size: 140%;
+            color: #787D80;
+            
+            
+        }
+        .Search-Bar{
+            @include placeholder-color(#DCDCDC);    
+        }
+    }
     
     .Library-Item{
         padding: 1rem;
         
-        .Item-Preview{
+        .Item-Thumb{
             width: 15rem;
             height: 15rem;
             margin: 0 auto;
@@ -90,7 +168,160 @@ LIBRARY CLASSES
             font-family: 'Hind';
             font-size: 110%;
             text-align: center;
+            overflow: hidden;
         }
     }
     
+}
+
+.Item-View-Container{
+    position: fixed;
+    top: 0;   
+    overflow: hidden;
+    height: 0;
+    z-index: 999;
+    
+    @include transition(height,1s);
+    
+    //Item Preview Container
+    .Item-View-Left{
+        width: 75%;
+        height: 100vh;
+        float: left;
+        
+        div{
+            display: table;
+        }
+        
+        img{
+            display: block;
+            width: auto;
+            height: 45vh;
+        }
+    
+        video{
+            display: block; 
+            width: 100%;
+            height: 100%
+        }
+    }//end Item-View-Left
+    
+    .Item-View-Right{
+        width: 25%;
+        min-height: 100vh;
+        float: left;
+        background-color: #EFEFEF;
+        //overflow-y: scroll;
+        position: relative; 
+        
+        //Item Preview Title
+        .Item-View-Title{
+            width: 100%;
+            height: 60px;
+            background-color: #FBFBFB;
+            display: table;
+            border-bottom: 1px solid #E6E6E6;
+            padding: 0 20px;
+            padding-top: 2rem;
+            
+            .Item-View-Title-Top{
+                display: table;
+                width: 100%;
+                
+                i{
+                    text-align: right;
+                    float: right;
+                    font-size: 130%;
+                    padding: 3px;  
+                }
+                i:hover{
+                    background-color: #eee;
+                    cursor: pointer;
+                }
+            }
+            
+            h1{
+                width: 100%;
+                font-size: 150%;
+                font-family: 'Roboto';
+                font-weight: 300;
+                float: left;
+                margin: 0;
+                margin-bottom: 15px;
+                max-height: 60px; 
+                overflow: hidden;
+            }
+        }
+        
+        //Item Preview Information
+        .Item-View-Info{
+            width: 100%;
+            padding: 0 2rem;
+            display: table;
+            
+            h1{
+                width: 100%;
+                font-size: 145%;
+                font-family: 'Roboto';
+                font-weight: 400;
+                float: left;
+                margin: 0;
+                height: 60px;
+                line-height: 60px;
+                color: #333;  
+            }
+            
+            table{
+                width: 100%;
+                font-family: 'Hind';
+                color: #333;
+            }
+        }
+        
+        //Item Preview Info Bottom Bar
+        .Item-View-Bottom{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 5rem;
+            border-top: 1px solid #DCDCDC;
+            background-color: #F7F7F7;
+            
+            h1{
+                color: #333;
+                margin: 0;
+                padding: 0;
+                font-weight: 300;
+                font-size: 100%;
+                font-family: 'Hind'; 
+                width: 100%;
+                line-height: 5.4rem;
+                text-align: center;
+            }
+            
+            div{
+                width: 50%;
+                height: 100%;
+                float: left;
+            }
+            div:hover{
+                background-color: #31c0be;
+                cursor: pointer;
+            }
+            
+            .Item-View-Bottom-Download{
+                border-left: 1px solid #DCDCDC;
+            }
+        }
+    }
+}
+
+.Item-View-Container.active{
+    display: block;
+    background-color: rgba(0, 0, 0, 0.90);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;  
+    left: 0;
 }

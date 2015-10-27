@@ -7,10 +7,10 @@
     }
 
     //Webpage Title
-    $Title = "All Media";
+    $Title = "All Audio";
 
     displayHead($Title);
-    displayNav(1);
+    displayNav(4);
     displayTopBar();
 ?>
         <!-------------------------------------
@@ -38,7 +38,7 @@
         <div class="Library-Container"> 
             
             <div class="Library-Head">
-                <h1>All Media</h1>
+                <h1>All Audio</h1>
                 <div class="Search-Trigger"><i class="fa fa-search"></i></div>
             </div>
             
@@ -64,7 +64,7 @@
     
             $userID = $_SESSION['login'];
 
-            $sql = "SELECT * FROM media WHERE memberID='$userID'";
+            $sql = "SELECT * FROM media WHERE memberID='$userID' AND mediaTypeID=3";
             $result = mysqli_query($con, $sql) or die(mysqli_error($con)); //run the query
     
             while ($row = mysqli_fetch_array($result)){
