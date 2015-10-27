@@ -18,9 +18,7 @@ ON DOC READY ~ START
     QuerySearch();
     
     // Live filtering of items using search bar 
-    $("#filter").keyup(function(){
-        LiveSearch();
-    });
+    LiveSearch();
     
     // Displays search bar when toggled
     $('.Search-Trigger').click(function(){
@@ -31,7 +29,6 @@ ON DOC READY ~ START
 // SEARCH FUNCTION 
 //------------------------------
 
-//Function to enable 
 function QuerySearch(){
     var getQuery = $(document).getUrlParam("q");
     
@@ -53,3 +50,23 @@ function QuerySearch(){
         });
     }      
 }
+
+function LiveSearch(){
+    $("#filter").keyup(function(){
+ 
+        // Retrieve the input field text and reset the count to zero
+        var filter = $(this).val();
+    
+        // Loop through the comment list
+        $(".Library-Container .Library-Item").each(function(){
+            // If the list item does not contain the text phrase fade it out
+            if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                $(this).fadeOut();
+ 
+            // Show the list item if the phrase matches and increase the count by 1
+            } else {
+                $(this).show();
+            }
+        });
+    });
+}   
