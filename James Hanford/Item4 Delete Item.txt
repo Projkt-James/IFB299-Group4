@@ -1,0 +1,89 @@
+//-------------------------------------------------------
+// Portfolio 2 - Item 4:
+//
+// -> Delete Item jQuery(Ajax)/PHP Code <-
+//
+// * Javascript/jQuery Ajax and PHP code that enables
+//   the same page delete or Media items.
+//-------------------------------------------------------
+
+//------------------------------
+// MEDIA DELETE Javascript/jQuery Ajax
+//------------------------------
+    
+    //Prompts and performs Media Item Delete
+    $('.Item-View-Bottom-Delete').click(function(){
+        var path = $(this).parentsUntil(".Library-Item");
+        var path2 = $(path).parent();
+        var x = $(this).attr('id');
+        alert(x);
+        
+        //Prompt to ensure user wishes to delete item
+        var result = confirm("Did you want to Delete?");
+        
+        //If users agrees to prompt message
+        if(result == true){
+            
+	    //
+	    // jQuery AJAX 
+            //
+            //Concatenate the data to array:
+            var val = {xval: x};
+            $.ajax({
+                //the path to the php file that handles the data
+                url: "../includes/delete_item.php",
+                type: "POST",
+                dataType: 'json',
+                data: val,
+
+                success: function(data) {
+                    
+                    //Success Status 
+                    if(data.status == "Success"){
+                        $(path).remove();
+                        $(path2).remove();
+                        
+                    //Failure Status
+                    }else if(data.status == "Failure"){
+                        alert(data.message);
+                    }
+                },
+
+                error: function(data) {
+                    alert("Something Went Wrong :( ");
+                }
+            });
+        }
+    });
+
+//------------------------------
+// MEDIA DELETE Php
+//------------------------------
+<?php
+include "../includes/connect.php";
+
+if(isset($_POST['xval'])){
+    $idValue = mysqli_real_escape_string($con, $_POST['xval']);
+}
+
+
+if(empty($idValue)){
+    echo json_encode(array('status' => 'Failure', 'message' => 'Error: No item'));   
+}else{
+    
+    //Checks Username Availiblity
+    $sql_itemCheck = "SELECT * FROM media WHERE mediaID = '$idValue'"; 
+    $itemCheck = mysqli_query($con, $sql_itemCheck) or die(mysqli_error($con)); //run the query 
+
+    if(mysqli_num_rows($itemCheck) >= 0){
+        
+        $sql_itemDelete = "DELETE FROM media WHERE mediaID = '$idValue'"; 
+        $itemDelete = mysqli_query($con, $sql_itemDelete) or die(mysqli_error($con)); //run the query 
+        
+        echo json_encode(array('status' => 'Success', 'message' => ''));
+    }else{
+        echo json_encode(array('status' => 'Failure', 'message' => 'Database Error: Item not found'));
+    }
+    
+}
+?>

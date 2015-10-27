@@ -1,0 +1,55 @@
+//-------------------------------------------------------
+// Portfolio 2 - Item 1
+//
+// -> jQuery Search <-
+//
+// * Javascript/jQuery code that enables live search 
+//   functionality within the web app 
+//-------------------------------------------------------
+
+/***************************
+ON DOC READY ~ START
+***************************/
+//------------------------------
+// SEARCH 
+//------------------------------
+    
+    // Sets search from address bar get
+    QuerySearch();
+    
+    // Live filtering of items using search bar 
+    $("#filter").keyup(function(){
+        LiveSearch();
+    });
+    
+    // Displays search bar when toggled
+    $('.Search-Trigger').click(function(){
+        $('.Library-Search').addClass('active');
+    });
+
+//------------------------------
+// SEARCH FUNCTION 
+//------------------------------
+
+//Function to enable 
+function QuerySearch(){
+    var getQuery = $(document).getUrlParam("q");
+    
+    if(getQuery){
+        var filter = getQuery;
+        $('.Library-Search').addClass('active');
+        $('.Library-Search input').val(getQuery);
+        
+        // Loop through the comment list
+        $(".Library-Container .Library-Item").each(function(){
+            // If the list item does not contain the text phrase fade it out
+            if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                $(this).fadeOut();
+ 
+            // Show the list item if the phrase matches and increase the count by 1
+            } else {
+                $(this).show();
+            }
+        });
+    }      
+}

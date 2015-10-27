@@ -1,0 +1,28 @@
+//-------------------------------------------------------
+// Portfolio 2 - Item 3:
+//
+// -> Javascript Item Preview <-
+//
+// * Javascript/jQuery code that enables animation of
+//   displaying and hiding media preview elements.
+//-------------------------------------------------------
+
+    //------------------------------
+    // MEDIA PREVIEW
+    //------------------------------
+    
+    //Opens Media Item Preview on click of Item Thumbnail
+
+    $('.Item-Thumb').click(function(){
+        var path = $(this).parent().children(".Item-View-Container");
+        $(path).addClass('active');
+    });
+    
+    //Closes Media Item Preview
+ 
+    $('.Item-View-Title-Top i').click(function(){
+        var path = $(this).parentsUntil(".Library-Item");
+        $(path).addClass('hidden');
+        $(path).removeClass('active');
+        setTimeout(function(){ $(path).removeClass('hidden'); }, 1000);
+    });

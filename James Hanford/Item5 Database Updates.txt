@@ -1,0 +1,10 @@
+//-------------------------------------------------------
+// Portfolio 2 - Item 5:
+//
+// -> Updated Database <-
+//
+// * Updated database media table to include fields for
+//   mediaFileType, mediaDimensions, mediaSize, mediaAddDate.
+// * Database update allows media preview details to be printed
+//   within the preview element for each media item.
+//-------------------------------------------------------
